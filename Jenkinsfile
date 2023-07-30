@@ -30,7 +30,7 @@ pipeline {
             steps {
                 script {
                     def newImage = docker.build("swe645hw3")
-                    newImage.push()
+                    sh 'docker push asdpkp/swe645hw3'
                 }
             }
         }
