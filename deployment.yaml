@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-instance
+  labels:
+    app: mysqldbi
+spec:
+  replicas: 3
+  strategy: RollingUpdate
+  selector:
+    matchLabels:
+      app: mysqldbi
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+        - name: mysqldb
+          image: mysql
+          env: 
+          - name: MYSQL_ROOT_PASSWORD
+            value: root
+          - name: MYSQL_DATABASE
+            value: surveysdb
+          ports:
+          - containerPort: 80
+
+
