@@ -18,9 +18,13 @@ pipeline {
         stage('Logging into Docker') {
             steps {
                 echo "Docker Hub Username: ${usrname}"
-                echo "Docker Hub Password": ${psswrd}"
+                echo "Docker Hub Password: ${psswrd}"
                 }
             }
         stage('Login Successful') {
-            echo "Success!!!"
+            steps {
+                echo "Success!!!"
             }
+            }
+    }
+}
