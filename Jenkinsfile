@@ -38,7 +38,7 @@ pipeline {
         stage('Deploying the the cluster') {
             steps {
                 script {
-                    sh 'kubectl config view'
+                    sh 'gcloud init'
                 }
             }
         }
