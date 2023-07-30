@@ -29,6 +29,7 @@ pipeline {
         stage('Building and Pushing Docker Image') {
             steps {
                 script {
+                    sh 'docker login -u asdpkp -p asdpkp+718293'
                     dockerImage = docker.build("asdpkp/swe645hw3")
                     dockerImage.push("yolo")
                 }
