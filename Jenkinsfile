@@ -38,7 +38,7 @@ pipeline {
         stage('Setting config account') {
             steps {
                 script {
-                    sh "gcloud config set account 'jenkins-service-account@premium-griffin-394400.iam.gserviceaccount.com'"
+                    sh "gcloud config set account '332015331661-compute@developer.gserviceaccount.com'"
                     sh 'gcloud container clusters get-credentials hw3-microservices --region=us-east4'
                 }
             }
