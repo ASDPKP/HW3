@@ -4,7 +4,7 @@ def psswrd = "asdpkp+718293"
 pipeline {
     agent any
     environment {
-        docker_creds = credentials('docker-user')
+        docker_creds = credentials('docker-credentials')
         }
 
     stages {
