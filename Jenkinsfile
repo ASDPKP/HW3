@@ -39,14 +39,12 @@ pipeline {
             steps {
                 script {
                     sh "gcloud config set account 'atnk1180@gmail.com'"
-                    sh 'gcloud init'
                 }
             }
         }
         stage('Setting Kubeconfig file') {
             steps {
                 script {
-                    sh 'gcloud auth login'
                     sh 'gcloud container clusters get-credentials hw3-microservices --region=us-east4'
                 }
             }
