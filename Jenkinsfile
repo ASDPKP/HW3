@@ -38,9 +38,8 @@ pipeline {
         stage('Setting config account') {
             steps {
                 script {
-                    sh "gcloud config set account '1123@gmail.com'"
-                    sh 'gcloud config list'
-                    echo "Please enter your numeric choice: ${1}"
+                    sh "gcloud config set account '332015331661-compute@developer.gserviceaccount.com '"
+                    sh 'glcloud container clusters get-credentials hw3-microservices --region=us-east4'
                 }
             }
         }
