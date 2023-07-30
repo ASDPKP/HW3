@@ -35,6 +35,13 @@ pipeline {
                 }
             }
         }
+        stage('Setting config account') {
+            steps {
+                script {
+                    sh "gcloud config set account 'atnk1180@gmail.com'"
+                }
+            }
+        }
         stage('Deploying the the cluster') {
             steps {
                 script {
