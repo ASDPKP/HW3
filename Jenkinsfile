@@ -25,6 +25,12 @@ pipeline {
             steps {
                 echo "Success!!!"
             }
+        }
+        stage('Build Docker Image') {
+            steps {
+                def newImage = docker.build("swe645hw3:${env.BUILD_ID}")
+                newImage.push()
             }
+        }
     }
 }
