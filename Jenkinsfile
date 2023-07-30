@@ -28,7 +28,7 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                def newImage = docker.build("swe645hw3:${env.BUILD_ID}")
+                def newImage = docker.build("swe645hw3:latest")
                 newImage.push()
             }
         }
