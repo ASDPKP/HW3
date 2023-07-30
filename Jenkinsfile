@@ -29,7 +29,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    dockerImage = docker.build("asdpkp/swe645hw3", "./HW3")
+                    dockerImage = docker.build("asdpkp/swe645hw3")
                 }
             }
         }
