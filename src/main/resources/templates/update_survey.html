@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <style>
+        body {
+            align-items: center;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        navbody {
+            margin: 100px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .topnav {
+            overflow: auto;
+            background-color: green;
+        }
+
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover{
+            background-color: #ddd;
+            color: black
+        }
+
+        .topnav a:active {
+            background-color: #0088dd;
+            color: gray;
+        }
+
+        .form {
+            background-color: #15172b;
+            border-radius: 20px;
+            box-sizing: border-box;
+            height: 1200px;
+            padding: 20px;
+            width: 1000px;
+        }
+
+        .title {
+            color: #eee;
+            font-family: sans-serif;
+            font-size: 36px;
+            font-weight: 600;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: #eee;
+            font-family: sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .input-container {
+            height: 50px;
+            position: relative;
+            width: 100%;
+            border-color: aquamarine;
+        }
+
+        .ic1 {
+            margin-top: 40px;
+        }
+
+        .ic2 {
+            margin-top: 30px;
+        }
+
+        .input {
+            background-color: black;
+            border-radius: 12px;
+            border: 0;
+            box-sizing: border-box;
+            color: white;
+            font-size: 18px;
+            height: 100%;
+            outline: 0;
+            padding: 4px 20px 0;
+            width: 100%;
+        }
+
+        .cut {
+            background-color: #15172b;
+            border-radius: 10px;
+            height: 20px;
+            left: 20px;
+            position: absolute;
+            top: -20px;
+            transform: translateY(0);
+            transition: transform 200ms;
+            width: 76px;
+        }
+
+        .cut-short {
+            width: 50px;
+        }
+
+        .input:focus ~ .cut,
+        .input:not(:placeholder-shown) ~ .cut {
+            transform: translateY(8px);
+            color: red;
+        }
+
+        label {
+            color: #eeeeee;
+            font-family: "Times New Roman";
+        }
+
+        .placeholder {
+            color: red;
+            font-family: sans-serif;
+            left: 20px;
+            line-height: 14px;
+            pointer-events: none;
+            position: absolute;
+            transform-origin: 0 50%;
+            transition: transform 200ms, color 200ms;
+            top: 20px;
+        }
+
+        .input:focus ~ .placeholder,
+        .input:not(:placeholder-shown) ~ .placeholder {
+            transform: translateY(-30px) translateX(10px) scale(0.75);
+        }
+
+        .input:not(:placeholder-shown) ~ .placeholder {
+            color: #808097;
+        }
+
+        .input:focus ~ .placeholder {
+            color: #dc2f55;
+        }
+
+        .submit {
+            background-color: #08d;
+            border-radius: 12px;
+            border: 0;
+            box-sizing: border-box;
+            color: #eee;
+            cursor: pointer;
+            font-size: 18px;
+            height: 50px;
+            margin-top: 38px;
+        // outline: 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .submit:active {
+            background-color: #06b;
+        }
+    </style>
+</head>
+<navbody>
+
+    <div class="topnav">
+        <a class="active-table-tab" th:href="@{/survey/entries}"> Survey Entries</a>
+    </div>
+
+    <br>
+    <br>
+    <div class="form">
+        <div class = "input-container ic1">
+            <h1 class="title">Help make us better!</h1>
+            <div class="card-body">
+                <form th:action = "@{/survey/entries/{id} (id=${student.id})}" th:object = "${student}" method="post">
+                    <div class="input-container ic1">
+                        <label><input class="input" id="firstname" type="text" name="firstName" th:field="*{firstName}" placeholder="Enter your first name"></label>
+                    </div>
+                    <div class="input-container ic1">
+                        <label><input class="input" type="text" name="lastName" th:field="*{lastName}" placeholder="Enter your last name."></label>
+                    </div>
+                    <div class="input-container ic2">
+                        <label><input class="input" type="text" name="address" th:field="*{streetAddress}" placeholder="Enter your address."></label>
+                    </div>
+                    <div class="input-container ic2">
+                        <label><input class="input" type="text" name="email" th:field="*{email}" placeholder="Enter your email address."></label>
+                    </div>
+                    <div class="input-container ic2">
+                        <label><input class="input" type="text" name="city" th:field="*{city}" placeholder="Enter your city."></label>
+                    </div>
+                    <div class="input-container ic2">
+                        <label><input class="input" type="text" name="state" th:field="*{state}" placeholder="Enter your state."></label>
+                    </div>
+                    <div class="input-container ic2">
+                        <label><input class="input" type="number" name="zip" th:field="*{postalCode}" placeholder="Enter your Postal Code."></label>
+                    </div>
+                    <div class="input-container ic2">
+                        <label><input class="input" type="number" name="phoneNumber" th:field="*{telephoneNumber}" placeholder="Enter your Phone Number."></label>
+                    </div>
+                    <div class="input-container ic2">
+                        <label><input class="input" type="date" name="surveyDate" th:field="*{surveyDate}"></label>
+                    </div>
+                    <div class="input-container ic2">
+                        <label> What did you like most about the campus? </label><br><br>
+                        <label><input type="radio" id="like_option1" name="mostLiked" th:value="Students" th:field="*{mostLiked}"><label for="like_option1"> Students </label></label>
+                        <label><input type="radio" id="like_option2" name="mostLiked" th:value="Location" th:field="*{mostLiked}"><label for="like_option2"> Location </label> </label>
+                        <label><input type="radio" id="like_option3" name="mostLiked" th:value="Campus" th:field="*{mostLiked}"><label for="like_option3"> Campus </label> </label>
+                        <label><input type="radio" id="like_option4" name="mostLiked" th:value="Atmosphere" th:field="*{mostLiked}"><label for="like_option4"> Atmosphere </label> </label>
+                        <label><input type="radio" id="like_option5" name="mostLiked" th:value="Dorms" th:field="*{mostLiked}"><label for="like_option5"> Dorms </label></label>
+                        <label><input type="radio" id="like_option6" name="mostLiked" th:value="Sports" th:field="*{mostLiked}"><label for="like_option6"> Sports </label> </label>
+                    </div>
+                    <div class="input-container ic1">
+                        <label> What made you gain interest in this University? </label> <br><br>
+                        <label><input type="radio" id="interest_option1" name="interest" th:value="Friends" th:field="*{interestCause}"><label for="interest_option1"> Friends</label></label>
+                        <label><input type="radio" id="interest_option2" name="interest" th:value="Television" th:field="*{interestCause}"><label for="interest_option2"> Television </label> </label>
+                        <label><input type="radio" id="interest_option3" name="interest" th:value="Internet" th:field="*{interestCause}"><label for="interest_option3"> Internet </label> </label>
+                        <label><input type="radio" id="interest_option4" name="interest" th:value="Other" th:field="*{interestCause}"><label for="interest_option4"> Other </label> </label>
+                    </div>
+                    <div class="input-container ic1">
+                        <label> Would you recommend this University? </label><br><br>
+                        <label><input type="checkbox" id="Very_Likely" name="recommend" th:value="Very_Likely" th:field="*{recommendation}"><label for="Very_Likely"> Very Likely </label> </label>
+                        <label><input type="checkbox" id="Likely" name="recommend" th:value="Likely" th:field="*{recommendation}"><label for="Likely"> Likely </label></label>
+                        <label><input type="checkbox" id="Not_Likely" name="recommend" th:value="Not_Likely" th:field="*{recommendation}"><label for="Not_Likely"> Not Likely</label></label>
+                    </div>
+                    <div class="box-footer">
+                        <button class="submit" type="submit"> Submit </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</navbody>
