@@ -45,7 +45,7 @@ pipeline {
         stage('Deploying the the cluster') {
             steps {
                 script {
-                    sh 'gcloud container clusters list'
+                    sh 'gcloud init'
                 }
             }
         }
