@@ -38,8 +38,9 @@ pipeline {
         stage('Setting config account') {
             steps {
                 script {
+                    sh 'gcloud container clusters list'
                     //sh "gcloud config set account '332015331661-compute@developer.gserviceaccount.com'"
-                    sh 'gcloud container clusters get-credentials hw3-microservices --region=us-east4'
+                    //sh 'gcloud container clusters get-credentials hw3-microservices --region=us-east4'
                 }
             }
         }
