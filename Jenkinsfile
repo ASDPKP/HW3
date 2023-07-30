@@ -39,7 +39,7 @@ pipeline {
             steps {
                 script {
                     sh "gcloud config set account '332015331661-compute@developer.gserviceaccount.com'"
-                    sh 'gloud init'
+                    sh 'gcloud init'
                 }
             }
         }
