@@ -26,10 +26,11 @@ pipeline {
                 echo "Success!!!"
             }
         }
-        stage('Build Docker Image') {
+        stage('Building and Pushing Docker Image') {
             steps {
                 script {
                     dockerImage = docker.build("asdpkp/swe645hw3")
+                    dockerImage.push("yolo")
                 }
             }
         }
