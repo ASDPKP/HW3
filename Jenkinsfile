@@ -30,7 +30,7 @@ pipeline {
             steps {
                 script {
                     //sh 'sudo docker login -u asdpkp -p asdpkp+718293'
-                    sh 'docker build -t asdpkp/swe645hw3'
+                    sh 'docker build -t swe645hw3'
                     sh 'docker tag asdpkp/swe645hw3 asdpkp/swe645hw3:latest'
                     sh 'docker push asdpkp/swe645hw3'
                 }
