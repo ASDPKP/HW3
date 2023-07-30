@@ -45,6 +45,7 @@ pipeline {
         stage('Setting Kubeconfig file') {
             steps {
                 script {
+                    sh 'gcloud auth login'
                     sh 'gcloud container clusters get-credentials hw3-microservices --region=us-east4'
                 }
             }
