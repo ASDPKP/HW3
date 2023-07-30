@@ -40,7 +40,7 @@ pipeline {
                 script {
                     sh "gcloud config set account '332015331661-compute@developer.gserviceaccount.com'"
                     sh 'gcloud init'
-                    echo "Please enter your numeric choice: 1"
+                    echo "Please enter your numeric choice: ${1}"
                 }
             }
         }
