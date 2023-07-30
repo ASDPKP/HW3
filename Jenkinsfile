@@ -35,15 +35,15 @@ pipeline {
                 }
             }
         }
-        /*stage('Setting config account') {
+        stage('Setting config account') {
             steps {
                 script {
                     //sh "gcloud config set account '332015331661-compute@developer.gserviceaccount.com'"
-                    //sh 'gcloud container clusters get-credentials hw3-microservices --region=us-east4'
+                    sh 'gcloud container clusters get-credentials hw3-microservices --region=us-east4'
                 }
             }
         }
-        stage('Setting Kubeconfig file') {
+        /*stage('Setting Kubeconfig file') {
             //steps {
                 script {
                     sh ''
