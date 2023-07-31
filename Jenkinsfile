@@ -54,7 +54,7 @@ pipeline {
         stage('Deploying the the cluster') {
             steps {
                 script {
-                    sh 'ls -l /var/lib/jenkins/.kube/config'
+                    sh 'kubectl apply -f deployment.yaml'
                 }
             }
         }
