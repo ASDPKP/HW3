@@ -35,7 +35,7 @@ spec:
           tier: database
       spec:
           containers:
-            - name: mysqldbi-container
+            - name: mysqldbi-cont
               image: mysql:latest
               env:
                 - name: MYSQL_ROOT_PASSWORD
@@ -46,7 +46,7 @@ spec:
 
               ports:
                 - containerPort: 3306
-                  name: mysqldbi-container
+                  name: mysqldbi-cont
 
               volumeMounts:
                 - name: mysql-persistent-storage
