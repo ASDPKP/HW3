@@ -39,14 +39,14 @@ spec:
           tier: database
     spec:
       containers:
-        - name: mysqldb
+        - name: mysqldbi
           image: mysql:latest
           env:
             - name: MYSQL_ROOT_PASSWORD
-              key: password
+              key: root
 
             - name: MYSQL_DATABASE
-              key: dbName
+              key: mysqldb
 
           port:
             - containerPort: 3306
