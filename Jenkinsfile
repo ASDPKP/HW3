@@ -57,6 +57,12 @@ pipeline {
             steps {
                 sh 'kubectl apply -f service.yaml'
             }
-        }   
+        }
+
+        stage('Testing') {
+            steps {
+                sh 'kubectl get pods'
+            }
+        } 
     }
 }
