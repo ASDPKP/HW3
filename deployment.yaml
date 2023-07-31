@@ -6,7 +6,6 @@ metadata:
     app: mysqldbi
 spec:
   replicas: 3
-  strategy: RollingUpdate
   selector:
     matchLabels:
       app: mysqldbi
