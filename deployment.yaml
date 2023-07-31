@@ -25,7 +25,7 @@ spec:
           - name: MYSQL_DATABASE
             value: surveysdb
           ports:
-          - containerPort: 3307
+          - containerPort: 3306
             name: mysqldbi
           volumeMounts:
           - mountPath: /var/lib/mysql
