@@ -53,11 +53,11 @@ pipeline {
             }
         }
 
-        stage('Starting a service yaml') {
+        /*stage('Starting a service yaml') {
             steps {
                 sh 'kubectl apply -f service.yaml'
             }
-        }
+        }*/
 
         stage('Starting deployment yaml for app') {
             steps {
