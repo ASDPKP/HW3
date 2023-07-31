@@ -48,14 +48,14 @@ pipeline {
         stage('Deploying the the cluster') {
             steps {
                 script {
-                    sh 'kubectl apply -f mysql-deployment.yaml'
+                    sh 'kubectl apply -f deployment.yaml'
                 }
             }
         }
 
         stage('Starting a service yaml') {
             steps {
-                sh 'kubectl apply -f app-deployment.yaml'
+                sh 'kubectl apply -f service.yaml'
             }
         }
     }
