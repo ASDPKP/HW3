@@ -27,7 +27,7 @@ spec:
       app: mysqldbi
       tier: database
   strategy:
-      type: Recreate
+    type: Recreate
   template:
       metadata:
         labels:
@@ -35,7 +35,7 @@ spec:
           tier: database
       spec:
           containers:
-            - name: mysqldbi
+            - name: mysqldbi-container
               image: mysql:latest
               env:
                 - name: MYSQL_ROOT_PASSWORD
@@ -46,7 +46,7 @@ spec:
 
               ports:
                 - containerPort: 3306
-                  name: mysqldbi
+                  name: mysqldbi-container
 
               volumeMounts:
                 - name: mysql-persistent-storage
