@@ -51,5 +51,12 @@ pipeline {
                 sh 'kubectl apply -f app-deployment.yaml'
             }
         }
+
+        stage("Get pods status") {
+            steps {
+                sh 'kubectl get deployments'
+                sh 'kubectl get pods'
+            }
+        }
     }
 }
