@@ -1,0 +1,24 @@
+# Dana Jamous, Erman Sert, Lubna Fatima, Asra Naseem
+# This is our deployment yml The deployment that specify replication as 3 as we want resiliency for this project 
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hw2-deployment
+  labels:
+    app: hw2
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hw2
+  template:
+    metadata:
+      labels:
+        app: hw2
+    spec:
+      containers:
+      - name: homework2
+        image: esertgmu/hw2
+        ports:
+        - containerPort: 80
