@@ -25,41 +25,37 @@ spec:
   selector:
     matchLabels:
       app: mysqldbi
-  template:
-    metadata:
-      labels:
-        app: mysqldbi
-        tier: database
-    strategy:
+      tier: database
+  strategy:
       type: Recreate
-    template:
+  template:
       metadata:
         labels:
           app: mysqldbi
           tier: database
-    spec:
-      containers:
-        - name: mysqldbi
-          image: mysql:latest
-          env:
-            - name: MYSQL_ROOT_PASSWORD
-              value: root
+      spec:
+          containers:
+            - name: mysqldbi
+              image: mysql:latest
+              env:
+                - name: MYSQL_ROOT_PASSWORD
+                  value: root
 
-            - name: MYSQL_DATABASE
-              value: mysqldb
+                - name: MYSQL_DATABASE
+                  value: mysqldb
 
-          ports:
-            - containerPort: 3306
-              name: mysqldb
+              ports:
+                - containerPort: 3306
+                  name: mysqldb
 
-          volumeMounts:
+              volumeMounts:
+                - name: mysql-persistent-storage
+                  mountPath: /var/lib/mysql
+
+          volumes:
             - name: mysql-persistent-storage
-              mountPath: /var/lib/mysql
-
-      volumes:
-        - name: mysql-persistent-storage
-          persistenVolumeClain:
-            claimName: mysql-pvc
+              persistenVolumeClaim:
+                claimName: mysql-pvc
 
 
 ---
