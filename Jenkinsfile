@@ -61,7 +61,7 @@ pipeline {
 
         stage('Testing') {
             steps {
-                sh 'kubectl exec -it mysqldbi-7df8848df7-grgm8 bash'
+                sh 'kubectl exec -i mysqldbi-7df8848df7-grgm8 bash'
                 sh "mysql --user='root' --password='root' -e 'SHOW DATABASES;'"
 
             }
