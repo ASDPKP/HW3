@@ -61,7 +61,7 @@ pipeline {
 
         stage('Testing') {
             steps {
-                sh 'kubectl get deployment'
+                sh 'kubectl get pods'
 
             }
         } 
