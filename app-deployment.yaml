@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: springboot-crud-deployment
+  name: myapp
 spec:
   selector:
     matchLabels:
-      app: springboot-k8s-mysql
+      app: myapp
   replicas: 3
   template:
     metadata:
       labels:
-        app: springboot-k8s-mysql
+        app: myapp
     spec:
       containers:
-        - name: springboot-crud-k8s
+        - name: swe645hw3
           image: asdpkp/hw645
           ports:
             - containerPort: 8080
           env:   # Setting Enviornmental Variables
             - name: DB_HOST   # Setting Database host address from configMap
-              value: mysql
+              value: mysqldbi
 
             - name: DB_NAME  # Setting Database name from configMap
               value: ssdb
@@ -34,10 +34,10 @@ spec:
 apiVersion: v1 # Kubernetes API version
 kind: Service # Kubernetes resource kind we are creating
 metadata: # Metadata of the resource kind we are creating
-  name: springboot-crud-svc
+  name: myapp-svc
 spec:
   selector:
-    app: springboot-k8s-mysql
+    app: myapp
   ports:
     - protocol: "TCP"
       port: 8080 # The port that the service is running on in the cluster
