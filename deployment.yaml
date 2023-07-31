@@ -12,7 +12,7 @@ spec:
   template:
     metadata:
       labels:
-        app: myapp
+        app: mysqldbi
     spec:
       containers:
         - name: mysqldb
