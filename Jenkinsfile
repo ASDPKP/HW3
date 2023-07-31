@@ -54,7 +54,7 @@ pipeline {
         stage('Deploying the the cluster') {
             steps {
                 script {
-                    sh 'kubectl get nodes'
+                    sh 'kubectl apply -f deployment.yaml --context hw3-microservices'
                 }
             }
         }
