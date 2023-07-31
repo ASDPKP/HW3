@@ -65,11 +65,10 @@ pipeline {
             }
         }
 
-        stage('Starting deployment yaml for app') {
+        /*stage('Starting deployment yaml for app') {
             steps {
-                sh 'kubectl exec -it mysqldbi-785cddc4f4-kqzpt /bin/bash'
-                sh "mysql -u root -p root - mysqldbi -p 3306 -e \'SHOW DATABASES;\' "
+                
             }
-        }
+        }*/
     }
 }
