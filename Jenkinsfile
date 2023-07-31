@@ -63,7 +63,7 @@ pipeline {
             steps {
                 sh 'kubectl get pods'
                 //sh 'kubectl get service'
-                sh 'kubectl port-forward mysqldbi-d8c9ff8fd-6lj7s 3306:3306'
+                sh 'kubectl port-forward svc/mysqldbi-d8c9ff8fd-6lj7s 3306:3306'
 
             }
         } 
