@@ -22,7 +22,7 @@ spec:
             value: mysqldbi
 
           - name: DB_NAME
-            value: survey_entriesdb
+            value: student_surveydb
 
           - name: DB_USERNAME
             value: root
