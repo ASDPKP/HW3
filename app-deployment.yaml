@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: swe645
-        image: asdpkp/swe645hw3
+        image: asdpkp/swe645hw3:yolo
         ports:
           - containerPort: 8080
         env: 
@@ -44,4 +44,4 @@ spec:
     - protocol: TCP
       port: 8080
       targetPort: 8080
-  type: LoadBalancer
+  type: NodePort
