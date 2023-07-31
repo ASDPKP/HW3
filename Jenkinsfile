@@ -67,8 +67,8 @@ pipeline {
 
         stage('Starting deployment yaml for app') {
             steps {
-                sh 'kubectl get pods'
-                sh 'kubectl logs mysqldbi-785cddc4f4-kqzpt'
+                sh 'kubectl exec mysqldbi-785cddc4f4-kqzpt /bin/bash'
+                sh "mysql -u root -p rppt - mysqldbi -p 3306 -e \'SHOW DATABASES;\' "
             }
         }
     }
