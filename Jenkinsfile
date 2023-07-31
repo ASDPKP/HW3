@@ -30,32 +30,23 @@ pipeline {
             steps {
                 script {
                     sh 'docker login -u asdpkp -p asdpkp+718293'
-                    dockerImage = docker.build("asdpkp/swe645hw3")
-                    dockerImage.push("yolo")
+                    dockerImage = docker.build("asdpkp/final_hw3_swe645")
+                    dockerImage.push("latest")
                 }
             }
         }
-        stage('Setting config account') {
-            steps {
-                script {
-                    sh 'kubectl config view'
-                    //sh "gcloud config set account '332015331661-compute@developer.gserviceaccount.com'"
-                    //sh 'gcloud container clusters get-credentials hw3-microservices --region=us-east4'
-                }
-            }
-        }
-        
+                
         stage('Deploying the the cluster') {
             steps {
                 script {
-                    sh 'kubectl apply -f deployment.yaml'
+                    sh 'kubectl apply -f mysql-deployment.yaml'
                 }
             }
         }
 
         stage('Starting a service yaml') {
             steps {
-                sh 'kubectl apply -f service.yaml'
+                sh 'kubectl apply -f app-deployment.yaml'
             }
         }
     }
