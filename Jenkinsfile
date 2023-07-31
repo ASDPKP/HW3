@@ -38,14 +38,14 @@ pipeline {
         stage('Setting config account') {
             steps {
                 script {
-                    sh 'gcloud container clusters list'
+                    sh 'kubectl config view'
                     //sh "gcloud config set account '332015331661-compute@developer.gserviceaccount.com'"
                     //sh 'gcloud container clusters get-credentials hw3-microservices --region=us-east4'
                 }
             }
         }
         
-        stage('Deploying the the cluster') {
+        /*stage('Deploying the the cluster') {
             steps {
                 script {
                     sh 'kubectl apply -f mysql-deployment.yaml'
@@ -61,14 +61,8 @@ pipeline {
 
         stage('Seperator') {
             steps {
-                echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-            }
+                echo ""
+            }*/
         }
-
-        /*stage('Starting deployment yaml for app') {
-            steps {
-                
-            }
-        }*/
     }
 }
