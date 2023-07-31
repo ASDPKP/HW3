@@ -43,10 +43,10 @@ spec:
           image: mysql:latest
           env:
             - name: MYSQL_ROOT_PASSWORD
-              key: root
+              value: root
 
             - name: MYSQL_DATABASE
-              key: mysqldb
+              value: mysqldb
 
           port:
             - containerPort: 3306
