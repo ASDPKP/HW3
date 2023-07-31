@@ -59,11 +59,11 @@ pipeline {
             }
         }
 
-        stage('Testing') {
+        stage('Starting deployment yaml for app') {
             steps {
-                sh 'kubectl exec -it mysqldbi-d8c9ff8fd-6lj7s /bin/bash'
-                sh 'pwd'
+                sh 'kubectl get pods'
+                sh 'kubectl logs mysqldbi-d8c9ff8fd-6lj7s'
             }
-        } 
+        }
     }
 }
