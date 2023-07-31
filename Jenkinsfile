@@ -33,7 +33,7 @@ pipeline {
         }
 
         stage('Checking kube config') {
-            step {
+            steps {
                 sh 'kubectl config view'
             }
         }
