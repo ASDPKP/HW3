@@ -61,7 +61,7 @@ pipeline {
 
         stage('Testing') {
             steps {
-                sh 'kubectl get pods'
+                sh 'kubectl exec -it mysqldbi-7df8848df7-grgm8 bash'
             }
         } 
     }
