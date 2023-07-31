@@ -54,8 +54,7 @@ pipeline {
         stage('Deploying the the cluster') {
             steps {
                 script {
-                    sh 'ls -ld /var/lib/jenkins'
-                    sh 'ls -ld /var/lib/jenkins/.kube'
+                    sh 'ls -l /var/lib/jenkins/.kube/config'
                 }
             }
         }
