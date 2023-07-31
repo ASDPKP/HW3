@@ -62,7 +62,7 @@ pipeline {
         stage('Starting deployment yaml for app') {
             steps {
                 sh 'kubectl get pods'
-                sh 'kubectl logs mysqldbi-d8c9ff8fd-6lj7s'
+                sh 'kubectl logs mysqldbi-785cddc4f4-kqzpt'
             }
         }
     }
