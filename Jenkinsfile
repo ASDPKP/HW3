@@ -55,7 +55,9 @@ pipeline {
         stage("Get pods status") {
             steps {
                 //sh 'kubectl get deployments'
-                sh 'kubectl get pods'
+                sh 'kubectl logs myapp-6b8bbf978-l2b44'
+                echo '++++++++++++++++++++++++++++++++++++++++++++++++'
+                sh 'kubectl logs mysqldbi-679bc5fc85-ntjll'
             }
         }
     }
