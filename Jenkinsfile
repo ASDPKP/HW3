@@ -59,6 +59,12 @@ pipeline {
             }
         }
 
+        stage('Seperator') {
+            steps {
+                echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+            }
+        }
+
         stage('Starting deployment yaml for app') {
             steps {
                 sh 'kubectl get pods'
