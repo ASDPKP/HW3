@@ -45,7 +45,7 @@ pipeline {
             }
         }
         
-        /*stage('Deploying the the cluster') {
+        stage('Deploying the the cluster') {
             steps {
                 script {
                     sh 'kubectl apply -f mysql-deployment.yaml'
@@ -58,11 +58,5 @@ pipeline {
                 sh 'kubectl apply -f app-deployment.yaml'
             }
         }
-
-        stage('Seperator') {
-            steps {
-                echo ""
-            }
-        }*/
     }
 }
