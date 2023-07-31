@@ -54,7 +54,7 @@ pipeline {
         stage('Deploying the the cluster') {
             steps {
                 script {
-                    sh 'ls /var/lib/jenkins'
+                    sh 'kubectl view config'
                 }
             }
         }
