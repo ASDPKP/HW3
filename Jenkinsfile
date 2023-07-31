@@ -54,7 +54,8 @@ pipeline {
         stage('Deploying the the cluster') {
             steps {
                 script {
-                    sh 'pwd'
+                    sh 'cd /var/lib/jenkins'
+                    sh 'ls'
                 }
             }
         }
