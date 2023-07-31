@@ -42,7 +42,7 @@ spec:
                   value: root
 
                 - name: MYSQL_DATABASE
-                  value: student_surveydb
+                  value: xyzdb
 
               ports:
                 - containerPort: 3306

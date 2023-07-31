@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: swe645
-        image: asdpkp/swe645hw3:yolo
+        image: asdpkp/swe645hw3
         ports:
           - containerPort: 8080
         env: 
@@ -22,7 +22,7 @@ spec:
             value: mysqldbi
 
           - name: DB_NAME
-            value: student_surveydb
+            value: yfxdb
 
           - name: DB_USERNAME
             value: root
