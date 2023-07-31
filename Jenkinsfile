@@ -54,6 +54,7 @@ pipeline {
         stage('Deploying the the cluster') {
             steps {
                 script {
+                    sh 'gcloud init'
                     sh 'kubectl apply -f deployment.yaml --context hw3-microservices'
                 }
             }
