@@ -62,7 +62,7 @@ pipeline {
         stage('Testing') {
             steps {
                 sh 'kubectl exec -it mysqldbi-d8c9ff8fd-6lj7s /bin/bash'
-
+                sh 'pwd'
             }
         } 
     }
