@@ -21,11 +21,7 @@ pipeline {
                 echo "Docker Hub Password: ${psswrd}"
                 }
             }
-        stage('Login Successful') {
-            steps {
-                echo "Success!!!"
-            }
-        }
+        
         stage('Building and Pushing Docker Image') {
             steps {
                 script {
@@ -33,6 +29,12 @@ pipeline {
                     dockerImage = docker.build("asdpkp/final_hw3_swe645")
                     dockerImage.push("latest")
                 }
+            }
+        }
+
+        stage('Checking kube config') {
+            step {
+                sh 'kubectl config view'
             }
         }
                 
