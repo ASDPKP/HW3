@@ -54,7 +54,8 @@ pipeline {
         stage('Deploying the the cluster') {
             steps {
                 script {
-                    sh 'kubectl config view'
+                    sh 'ls -ld /var/lib/jenkins'
+                    sh 'ls -ld /var/lib/jenkins/.kube'
                 }
             }
         }
