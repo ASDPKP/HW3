@@ -43,16 +43,10 @@ spec:
           image: mysql:latest
           env:
             - name: MYSQL_ROOT_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: mysql-secrets
-                  key: password
+              key: password
 
             - name: MYSQL_DATABASE
-              valueFrom:
-                configMapKeyRef:
-                name: db-config
-                key: dbName
+              key: dbName
 
           port:
             - containerPort: 3306
