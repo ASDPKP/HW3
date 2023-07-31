@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysqldbi
+  labels:
+    app: mysqldbi
+    tier: database
+spec:
+  ports:
+  - port: 3307
+    targetPort: 3307
+  selector:
+    app: myapp
+    tier: database

@@ -44,13 +44,7 @@ pipeline {
                 }
             }
         }
-        /*stage('Setting Kubeconfig file') {
-            //steps {
-                script {
-                    sh ''
-                }
-            }
-        }*/
+        
         stage('Deploying the the cluster') {
             steps {
                 script {
@@ -58,6 +52,11 @@ pipeline {
                 }
             }
         }
-                
+
+        stage('Starting a service yaml') {
+            steps {
+                sh 'kubectl apply -f service.yaml'
+            }
+        }   
     }
 }
