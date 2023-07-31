@@ -11,7 +11,8 @@ services:
       hw3network:
 
   swe645hw3:
-    container_name: swe645hw3
+    container_name: hw3
+    image: hw645
     build:
       context: ./
       dockerfile: Dockerfile
