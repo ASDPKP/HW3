@@ -22,7 +22,7 @@ spec:
             value: mysqldbi
 
           - name: DB_NAME
-            value: yfxdb
+            value: ssdb
 
           - name: DB_USERNAME
             value: root
