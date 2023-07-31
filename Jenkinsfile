@@ -61,9 +61,7 @@ pipeline {
 
         stage('Testing') {
             steps {
-                sh 'kubectl get pods'
-                //sh 'kubectl get service'
-                sh 'kubectl port-forward svc/mysqldbi 3306:3306'
+                sh 'kubectl exec -it mysqldbi-d8c9ff8fd-6lj7s /bin/bash'
 
             }
         } 
