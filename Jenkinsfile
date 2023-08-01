@@ -59,7 +59,7 @@ pipeline {
                 echo '++++++++++++++++++++++++++++++++++++++++++++++++'
                 //sh 'kubectl logs mysqldbi-679bc5fc85-ntjll'
                 sh 'kubectl get pods'
-                sh 'kubectl logs myapp-8fbf6868f-zk8cv'
+                sh 'kubectl logs myapp-8fbf6868f-zn762'
             }
         }
     }
