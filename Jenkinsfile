@@ -37,7 +37,7 @@ pipeline {
                 sh 'kubectl delete --all deployments'
                 sh 'kubectl delete svc mysqldbi'
                 sh 'kubectl delete svc myapp-svc'
-                sh 'kubectl delete pvc mysql-pvc'
+                //sh 'kubectl delete pvc mysql-pvc'
             }
         }
                 
