@@ -168,7 +168,7 @@
 <navbody>
 
     <div class="topnav">
-        <a class="active-table-tab" th:href="@{/survey/entries}"> Survey Entries</a>
+        <a class="active-table-tab" th:href="@{/entries}"> Survey Entries</a>
     </div>
 
     <br>
@@ -177,7 +177,7 @@
         <div class = "input-container ic1">
             <h1 class="title">Help make us better!</h1>
             <div class="card-body">
-                <form th:action = "@{/survey/entries/{id} (id=${student.id})}" th:object = "${student}" method="post">
+                <form th:action = "@{/entries/{id} (id=${student.id})}" th:object = "${student}" method="post">
                     <div class="input-container ic1">
                         <label><input class="input" id="firstname" type="text" name="firstName" th:field="*{firstName}" placeholder="Enter your first name"></label>
                     </div>

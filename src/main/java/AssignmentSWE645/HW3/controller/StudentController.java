@@ -23,7 +23,7 @@ public class StudentController {
     }
 
     //This a handler method for listing students
-    @GetMapping("/survey/entries")
+    @GetMapping("/entries")
     public String listStudents(Model model){
         List<StudentDto> students = studentService.getAllStudent();
         model.addAttribute("students", students);
@@ -31,7 +31,7 @@ public class StudentController {
     }
 
     //handler method for creating a new survey
-    @GetMapping("/survey")
+    @GetMapping("/")
     public String newStudent(Model model){
         StudentDto studentDto = new StudentDto();
         model.addAttribute("student", studentDto);
@@ -39,14 +39,14 @@ public class StudentController {
     }
 
     //handler method to store the new survey data into the database.
-    @PostMapping("/survey/entries")
+    @PostMapping("/entries")
     public String saveStudent(@ModelAttribute("student") StudentDto studentDto){
         studentService.createStudent(studentDto);
-        return "redirect:/survey/entries";
+        return "redirect:/entries";
     }
 
     //handler method to handle editing of existing surveys
-    @GetMapping("/survey/entries/edit/{id}")
+    @GetMapping("/entries/edit/{id}")
     public String editStudent(@PathVariable Long id, Model model){
         StudentDto studentDto = studentService.getStudentById(id);
         model.addAttribute("student", studentDto);
@@ -54,22 +54,22 @@ public class StudentController {
     }
 
     //handler method to submit updated data into the database
-    @PostMapping("/survey/entries/{id}")
+    @PostMapping("/entries/{id}")
     public String updateStudent(@PathVariable Long id, @Valid @ModelAttribute("student") StudentDto studentDto) {
         studentDto.setId(id);
         studentService.updateStudent(studentDto);
-        return "redirect:/survey/entries";
+        return "redirect:/entries";
     }
 
     //handler method to delete student survey
-    @GetMapping("/survey/entries/delete/{id}")
+    @GetMapping("/entries/delete/{id}")
     public String deleteStudent(@PathVariable("id") Long id){
         studentService.deleteStudent(id);
-        return "redirect:/survey/entries";
+        return "redirect:/entries";
     }
 
     //handler method to handle the view student request
-    @GetMapping("/survey/entries/view/{id}")
+    @GetMapping("/entries/view/{id}")
     public String viewStudent(@PathVariable("id") Long id, Model model){
         StudentDto studentDto = studentService.getStudentById(id);
         model.addAttribute("student", studentDto);
