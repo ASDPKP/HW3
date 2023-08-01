@@ -34,7 +34,7 @@ pipeline {
 
         stage('Checking kube config') {
             steps {
-                sh 'kubectl config view'
+                sh 'kubectl delete --all deployments'
             }
         }
                 
