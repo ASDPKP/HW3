@@ -8,12 +8,18 @@ pipeline {
         }
 
     stages {
-        stage('Testing for changes') {
+        stage('Checking for updates to the GitHub master repo') {
             steps {
                 echo 'Testing!!!'
                 checkout scm
                 }
             }
+
+        stage('Maven Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
 
         stage('Logging into Docker') {
             steps {
@@ -32,37 +38,5 @@ pipeline {
             }
         }
 
-        stage('Cleaning the cluster') {
-            steps {
-                sh 'kubectl delete deployments myapp'
-                sh 'kubectl delete svc mysqldbi'
-                sh 'kubectl delete svc myapp-svc'
-                //sh 'kubectl delete pvc mysql-pvc'
-            }
-        }
-                
-        stage('Deploying the the cluster') {
-            steps {
-                script {
-                    sh 'kubectl apply -f mysql-deployment.yaml'
-                }
-            }
-        }
-
-        stage('Starting a service yaml') {
-            steps {
-                sh 'kubectl apply -f app-deployment.yaml'
-            }
-        }
-
-        stage("Get pods status") {
-            steps {
-                //sh 'kubectl get deployments'
-                //sh 'kubectl logs myapp-6b8bbf978-l2b44'
-                echo '++++++++++++++++++++++++++++++++++++++++++++++++'
-                //sh 'kubectl logs mysqldbi-679bc5fc85-ntjll'
-                sh 'kubectl get pods'
-            }
-        }
     }
 }
