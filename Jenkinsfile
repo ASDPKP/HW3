@@ -12,7 +12,7 @@ pipeline {
             steps {
                 echo 'Testing!!!'
                 checkout scm
-                sh 'lsS'
+                sh 'ls'
                 }
             }
 
