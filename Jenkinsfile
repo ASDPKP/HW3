@@ -1,5 +1,5 @@
-def usrname = "asdpkp"
-def psswrd = "asdpkp+718293"
+//def usrname = "asdpkp"
+//def psswrd = "asdpkp+718293"
 
 pipeline {
     agent any
@@ -17,8 +17,8 @@ pipeline {
 
         stage('Logging into Docker') {
             steps {
-                echo "Docker Hub Username: ${usrname}"
-                echo "Docker Hub Password: ${psswrd}"
+                echo "Docker Hub Username: ${docker_creds_USR}"
+                echo "Docker Hub Password: ${docker_creds_PSW}"
                 }
             }
         
@@ -34,7 +34,7 @@ pipeline {
 
         stage('Cleaning the cluster') {
             steps {
-                sh 'kubectl delete --all deployments'
+                sh 'kubectl delete deployments myapp'
                 sh 'kubectl delete svc mysqldbi'
                 sh 'kubectl delete svc myapp-svc'
                 //sh 'kubectl delete pvc mysql-pvc'
