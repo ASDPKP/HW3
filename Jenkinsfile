@@ -32,7 +32,7 @@ pipeline {
             }
         }
 
-        /*stage('Checking kube config') {
+        stage('Checking kube config') {
             steps {
                 sh 'kubectl delete --all deployments'
             }
@@ -50,7 +50,7 @@ pipeline {
             steps {
                 sh 'kubectl apply -f app-deployment.yaml'
             }
-        }*/
+        }
 
         stage("Get pods status") {
             steps {
@@ -59,7 +59,6 @@ pipeline {
                 echo '++++++++++++++++++++++++++++++++++++++++++++++++'
                 //sh 'kubectl logs mysqldbi-679bc5fc85-ntjll'
                 sh 'kubectl get pods'
-                sh 'kubectl logs myapp-8fbf6868f-zn762'
             }
         }
     }
