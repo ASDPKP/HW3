@@ -10,18 +10,9 @@ pipeline {
     stages {
         stage('Checking for updates to the GitHub master repo') {
             steps {
-                echo 'Testing!!!'
                 checkout scm
-                sh 'ls'
                 }
             }
-
-        stage('Maven Build') {
-            steps {
-                sh 'mvn clean'
-                sh 'mvn install'
-            }
-        }
 
         stage('Logging into Docker') {
             steps {
