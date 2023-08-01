@@ -26,7 +26,7 @@ pipeline {
             steps {
                 script {
                     sh 'docker login -u asdpkp -p asdpkp+718293'
-                    dockerImage = docker.build("asdpkp/final_hw3_swe645")
+                    dockerImage = docker.build("asdpkp/xyz")
                     dockerImage.push("latest")
                 }
             }
