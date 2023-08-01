@@ -7,10 +7,10 @@ metadata:
     tier: database
 spec:
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   resources:
     requests:
-      storage: 1Gi
+      storage: 256Mi
 
 ---
 
@@ -36,7 +36,7 @@ spec:
       spec:
           containers:
             - name: mysqldbi-cont
-              image: mysql:latest
+              image: mysql
               env:
                 - name: MYSQL_ROOT_PASSWORD
                   value: root
