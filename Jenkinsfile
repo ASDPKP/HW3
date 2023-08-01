@@ -38,7 +38,7 @@ pipeline {
             }
         }
                 
-        /*stage('Deploying the the cluster') {
+        stage('Deploying the the cluster') {
             steps {
                 script {
                     sh 'kubectl apply -f mysql-deployment.yaml'
@@ -50,7 +50,7 @@ pipeline {
             steps {
                 sh 'kubectl apply -f app-deployment.yaml'
             }
-        }*/
+        }
 
         stage("Get pods status") {
             steps {
