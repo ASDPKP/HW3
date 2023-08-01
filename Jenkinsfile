@@ -32,13 +32,14 @@ pipeline {
             }
         }
 
-        /*stage('Checking kube config') {
+        stage('Cleaning the cluster') {
             steps {
                 sh 'kubectl delete --all deployments'
                 sh 'kubectl delete svc mysqldbi'
                 sh 'kubectl delete svc myapp-svc'
+                sh 'kubectl delete pvs mysql-pvc'
             }
-        }*/
+        }
                 
         stage('Deploying the the cluster') {
             steps {
