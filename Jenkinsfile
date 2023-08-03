@@ -1,6 +1,3 @@
-//def usrname = "asdpkp"
-//def psswrd = "asdpkp+718293"
-
 pipeline {
     agent any
     environment {
@@ -16,8 +13,7 @@ pipeline {
 
         stage('Logging into Docker') {
             steps {
-                echo "Docker Hub Username: ${docker_creds_USR}"
-                echo "Docker Hub Password: ${docker_creds_PSW}"
+                sh "docker login -u ${docker_creds_USR} -p ${docker_creds_PSW}"
                 }
             }
         
