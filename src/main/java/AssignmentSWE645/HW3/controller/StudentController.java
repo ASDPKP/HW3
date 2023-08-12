@@ -54,7 +54,7 @@ public class StudentController {
     }
 
     //handler method to submit updated data into the database
-    @PostMapping("/entries/{id}")
+    @PostMapping("/survey/entries/{id}")
     public String updateStudent(@PathVariable Long id, @Valid @ModelAttribute("student") StudentDto studentDto) {
         studentDto.setId(id);
         studentService.updateStudent(studentDto);
