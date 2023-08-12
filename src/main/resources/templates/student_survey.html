@@ -18,7 +18,7 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" th:href="@{/}">Give Survey</a>
+                <a class="nav-link" th:href="@{/survey}">Give Survey</a>
             </li>
         </ul>
     </div>
@@ -65,9 +65,9 @@
         <td th:text = "${student.interestCause}"></td>
         <td th:text = "${student.recommendation}"></td>
         <td>
-            <a th:href = "@{/entries/edit/{id}(id = ${student.id})}" class = "btn btn-primary">Edit</a>
-            <a th:href = "@{/entries/delete/{id} (id = ${student.id})}" class="btn btn-danger">Delete</a>
-            <a th:href = "@{/entries/view/{id} (id = ${student.id})}" class="btn btn-info">View</a>
+            <a th:href = "@{/survey/entries/edit/{id}(id = ${student.id})}" class = "btn btn-primary">Edit</a>
+            <a th:href = "@{/survey/entries/delete/{id} (id = ${student.id})}" class="btn btn-danger">Delete</a>
+            <a th:href = "@{/survey/entries/view/{id} (id = ${student.id})}" class="btn btn-info">View</a>
         </td>
     </tr>
 
